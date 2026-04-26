@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'helvetica', cursive;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  background-color: black;
+  width: 30vw;
+  height: 95vh;
+  border: 5px solid rgb(62, 62, 62);
+  border-radius: 5px;
+}
+#canvas{
+  width: 100%;
+  height: 100%;
+}
+#loading {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  font-size: 80px;
+  width: 100%;
+  color: white;
+}
+#blue-player {
+  display: none;
+}
+#spaceShip{
+  display: none;
+}
