@@ -21,9 +21,6 @@ export default class Player {
                         this.width,
                         this.height
                       );
-      context.strokeStyle = 'teal';
-      context.lineWidth = 2;
-      context.strokeRect(this.x + 12, this.y + 5, 50, 50)
                     
     }
   }
