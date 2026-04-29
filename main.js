@@ -7,9 +7,11 @@ window.onload = () => {
   const ctx = canvas.getContext('2d');
   const box = document.getElementById('container');
   const loading = document.getElementById('loading');
+  const startMenu = document.getElementById('startMenu');
+  const pause = document.getElementById('pause');
   loading.style.display = 'none';
 
-  canvas.width = box.clientWidth;
+  canvas.width = 400;
   canvas.height = box.clientHeight;
 
   canvas.addEventListener("contextmenu", e => e.preventDefault());
@@ -18,6 +20,8 @@ window.onload = () => {
   let Lholding = false;
 
   let eColor = 'blue';
+  
+  let isPaused = true;
 
   const enemies = [];
   const player = new Player(canvas.width, canvas.height);
@@ -69,16 +73,34 @@ window.onload = () => {
   const startBtn = document.getElementById('startBtn');
   startBtn.addEventListener('click', start);
 
-const startMenu = document.getElementById('startMenu');
 function start() {
     startMenu.style.display = 'none';
-    box.style.backgroundColor = 'black';
-    box.style = 'border: 5px solid rgb(62, 62, 62);'
+    box.style = 'border: 2px solid #136265';
+    pause.style.opacity = 1;
+    isPaused = false;
     animate();
 }
 
+function pauseGame() {
+  isPaused = true;
+}
+
+function resume() {
+  if(isPaused) {
+    isPaused = false;
+    animate();
+  }
+}
+
+  pause.addEventListener('click', e => {
+    if(isPaused) resume();
+    else if (!isPaused) pauseGame();
+  });
+
 function animate() {
-    ctx.fillStyle = 'gray';
+    if(isPaused) return;
+
+    ctx.fillStyle = '#1c9ab3';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     renderEnemies();
     player.drawPlayer(ctx); 
@@ -87,4 +109,5 @@ function animate() {
     collision();
     requestAnimationFrame(animate);
   }
+  animate();
 };

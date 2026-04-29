@@ -28,7 +28,7 @@ export default class InputHandler {
           break;
         }
       })
-      
+      /*
       window.addEventListener('mousedown', e => {
         switch(e.button) {
           case 0 : this.Lholding = true;
@@ -45,7 +45,7 @@ export default class InputHandler {
           break;
         }
       })
-
+*/
       window.addEventListener('contextmenu', e => e.preventDefault());
   }
   draw(player, canvas) {
