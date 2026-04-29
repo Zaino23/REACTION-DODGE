@@ -50,9 +50,9 @@ export default class InputHandler {
   }
   draw(player, canvas) {
       if(this.Lholding === true && player.x > 0){
-        player.x -= 10;
+        player.x -= 5;
       } else if(this.Rholding === true && player.x < canvas.width - player.width) {
-        player.x += 10;
+        player.x += 5;
     }
   }
 }

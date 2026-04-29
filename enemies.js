@@ -1,6 +1,6 @@
 export default class Enemies {
   constructor(gameWidth, gameHeight){
-      this.speedY = 5;
+      this.speedY = 2.5;
       this.gameWidth = gameWidth;
       this.gameheight = gameHeight;
       this.image = document.getElementById('spaceShip');
