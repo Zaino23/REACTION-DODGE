@@ -14,10 +14,8 @@ body {
 }
 
 #container {
-  background-color: black;
   width: 30vw;
   height: 95vh;
-  border: 5px solid rgb(62, 62, 62);
   border-radius: 5px;
 }
 #canvas{
@@ -37,4 +35,202 @@ body {
 }
 #spaceShip{
   display: none;
+} 
+#startMenu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 425px;
+  background-color: #1c9ab3;
+  border-radius: 15px;
+}
+#mainMenuTxt{
+  position: relative;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  font-size: 55px;
+  -webkit-text-stroke: 1px #136265;
+  text-shadow: 
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #00f7ff
+}
+#startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.8s ease-in-out;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  cursor: pointer;
+  background: whitesmoke;
+  color: #136265;
+  border: 1px solid #136265;
+
+  box-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff,
+  0 0 80px #00f7ff
+  ;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  line-height: 1;
+}
+#startTxt{
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transform: translateY(10px);
+  position: absolute;
+  top: 69%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: white;
+  -webkit-text-stroke: 0.999px #136265;
+  font-size: 32px;
+
+  text-shadow: 
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff
+}
+#startBtn:hover + #startTxt{
+  opacity: 1;
+  text-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+#startBtn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+#shop{
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 auto;
+  border: 1px solid #136265;
+  color: #136265;
+  background-color: whitesmoke;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.5s;
+  transition: transform 0.8s ease-in-out;
+}
+#shop:hover + #shopTxt{
+  opacity: 1;
+  text-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%);
+}
+#shop:hover{
+  box-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+#shopTxt{
+  position: absolute;
+  top: 90%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  color: white;
+  -webkit-text-stroke: 1px #136265;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transform: translateY(10px);
+}
+#coins{
+  position: absolute;
+  top: 78%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+
+  width: 40px;
+  border-radius: 4px;
+  border: 1px solid #136265;
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: #136265;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.5s;
+  transition: transform 0.8s ease-in-out;
+}
+#coins:hover {
+  box-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%) scale(1.2);
+  margin: 0 auto;
+}
+#settings{
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 0 auto;
+  border: 1px solid #136265;
+  color: #136265;
+  background-color: whitesmoke;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.5s;
+  transition: transform 0.8s ease-in-out;
+}
+#settings:hover{
+  box-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+#settingTxt{
+  position: absolute;
+  opacity: 0;
+  top: 90%;
+  left: 28%;
+  transform: translate(-50%, -50%);
+  color: white;
+  -webkit-text-stroke: 1px #136265;
+  font-size: 20px;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  transform: translateY(10px);
+}
+#settings:hover + #settingTxt{
+  opacity: 1;
+  text-shadow: 
+  0 0 10px #00f7ff,
+  0 0 20px #00f7ff,
+  0 0 40px #00f7ff
+  ;
+  transform: translate(-50%, -50%);
 }

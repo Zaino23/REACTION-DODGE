@@ -3,8 +3,8 @@ export default class Player {
       this.gameWidth = gameWidth;
       this.gameHeight = gameHeight;
       this.image = document.getElementById('blue-player');
-      this.width = 75;
-      this.height = 50;
+      this.width = 41;
+      this.height = 38;
       this.x = gameWidth / 2 - this.width / 2;
       this.y = gameHeight - this.height - 50; 
       this.frameX = 0;

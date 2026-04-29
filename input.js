@@ -1,32 +1,57 @@
 export default class InputHandler {
-  constructor(canvas) {
-        this.Rholding = false;
-        this.Lholding = false;
+  constructor() {
+    
+      this.Rholding = false;
+      this.Lholding = false;
 
-        document.addEventListener('keydown', event => {
-        if(event.key === 'ArrowLeft' || event.key === 'A' || event.key === 'a') this.Lholding = true;
-        else if(event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') {this.Rholding = true}
+      window.addEventListener('keydown', e => {
+        switch(e.key.toUpperCase()) {
+          case 'ARROWLEFT' : this.Lholding = true;
+          break;
+          case 'ARROWRIGHT' : this.Rholding = true;
+          break;
+          case 'A': this.Lholding = true;
+          break;
+          case 'D': this.Rholding = true;
+          break;
+        }
       });
-        
-        document.addEventListener('keyup', event => {
-          if(event.key === 'ArrowLeft' || event.key === 'A' || event.key === 'a') this.Lholding = false;
-          else if(event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') {this.Rholding = false}
-        })
-    
-    
-      canvas.addEventListener('mousedown', event => {
-        if(event.button === 0) this.Lholding = true; 
-        else if(event.button === 2) this.Rholding = true; 
+      window.addEventListener('keyup', e => {
+        switch(e.key.toUpperCase()) {
+          case 'ARROWLEFT' : this.Lholding = false;
+          break;
+          case 'ARROWRIGHT' : this.Rholding = false;
+          break;
+          case 'A' : this.Lholding = false;
+          break;
+          case 'D' : this.Rholding = false;
+          break;
+        }
       })
-      document.addEventListener('mouseup', event => {
-        if(event.button === 0) this.Lholding = false;
-        if(event.button === 2) this.Rholding = false;
-      });
+      
+      window.addEventListener('mousedown', e => {
+        switch(e.button) {
+          case 0 : this.Lholding = true;
+          break;
+          case 2 : this.Rholding = true;
+          break;
+        }
+      })      
+      window.addEventListener('mouseup', e => {
+        switch(e.button) {
+          case 0 : this.Lholding = false;
+          break;
+          case 2 : this.Rholding = false;
+          break;
+        }
+      })
+
+      window.addEventListener('contextmenu', e => e.preventDefault());
   }
   draw(player, canvas) {
       if(this.Lholding === true && player.x > 0){
         player.x -= 5;
-      } else if(this.Rholding === true && player.x < canvas.width - 50) {
+      } else if(this.Rholding === true && player.x < canvas.width - player.width) {
         player.x += 5;
     }
   }
