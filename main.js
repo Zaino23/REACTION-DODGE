@@ -83,11 +83,13 @@ function start() {
 
 function pauseGame() {
   isPaused = true;
+  pause.innerHTML = '⏵';
 }
 
 function resume() {
   if(isPaused) {
     isPaused = false;
+    pause.innerHTML = '❚❚';
     animate();
   }
 }
