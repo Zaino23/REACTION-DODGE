@@ -23,4 +23,11 @@ export default class Player {
                       );
                     
     }
+
+    ressetPlayer(input, canvas) {
+      this.image = document.getElementById('blue-player');
+      this.x = canvas.width / 2;
+      input.Rholding = false;
+      input.Lholding = false;
+    }
   }

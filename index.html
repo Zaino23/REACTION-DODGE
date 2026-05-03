@@ -10,19 +10,52 @@
   <h1 id="loading">LOADING...</h1>
   <div id="container">
   <canvas id="canvas"></canvas>
-  <button id="pause">❚❚</button>
+  <button id="pause" class="pause">❚❚</button>
   <img src="./skeleton-02_idle_b_00.png" id="blue-player">
+  <img src="./skeleton-02_idle_b_00 (1).png" id="Right-player">
   <img src="./enemies-sheet.png" id="spaceShip">
 </div>
-  <div id="startMenu">
-    <h1 id="mainMenuTxt">Main Menu</h1>
-    <button id="startBtn">►</button>
-    <h4 id="startTxt">START</h4>
-    <button id="coins">0 🪙</button>
-    <button id="shop">🛒</button>
-    <h5 id="shopTxt">SHOP</h5>
-    <button id="settings">⚙️</button>
-    <h5 id="settingTxt">SETTINGS</h5>
+  <div id="startMenu" class="menu">
+    <h1 id="mainMenuTxt" class="menuTitle">Main Menu</h1>
+    <button id="startBtn" class="MainBtn">►</button>
+    <h4 class="menuActionTxt">START</h4>
+    <button class="coinsBtn">0 🪙</button>
+    <button class="shopBtn">🛒</button>
+    <h5 class="shopTxt">SHOP</h5>
+    <button class="settingsBtn">⚙️</button>
+    <h5 class="settingsTxt">SETTINGS</h5>
+  </div>
+  
+  <div id="PauseMenu" class="menu">
+    <button id="Quit" class="quitBtn">X</button>
+    <h5 class="quitTxt">QUIT</h5>
+    <h1 class="menuTitle">Pause Menu</h1>
+    <button class="pauseBtn" id="pause2">⏵</button>
+    <h4 id="RESUME">RESUME</h4>
+    <button id="RestartBtn" class="RestartBtn">↻</button>
+    <h4 class="menuActionTxt" id="RestartBtnTxt">RESTART</h4>
+    <button class="coinsBtn">0 🪙</button>
+    <button class="shopBtn">🛒</button>
+    <h5 class="shopTxt">SHOP</h5>
+    <button class="settingsBtn">⚙️</button>
+    <h5 class="settingsTxt">SETTINGS</h5>
+  </div>
+
+  <div id="EndMenu" class="menu">
+    <h1 id="gameOverTxt">GAME OVER!</h1>
+    <h2 id="score">000</h2>
+    <h3 id="bestScore">Best Score ...</h3>
+    <h4 id="coinsEarned">coins earned ...</h4>
+    <button id="RestartEndBtn" class="RestartBtn">↻</button>
+    <h4  id="startEndTxt">RESTART</h4>
+    <button class="quitBtn">X</button>
+    <h5 class="quitTxt">QUIT</h5>
+    <button class="coinsBtn">0 🪙</button>
+    <button class="shopBtn">🛒</button>
+    <h5 class="shopTxt">SHOP</h5>
+    <button class="settingsBtn">⚙️</button>
+    <h5 class="settingsTxt">SETTINGS</h5>
+
   </div>
 
   <script src="main.js" type="module"></script>

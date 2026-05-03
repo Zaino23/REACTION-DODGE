@@ -28,31 +28,15 @@ export default class InputHandler {
           break;
         }
       })
-      /*
-      window.addEventListener('mousedown', e => {
-        switch(e.button) {
-          case 0 : this.Lholding = true;
-          break;
-          case 2 : this.Rholding = true;
-          break;
-        }
-      })      
-      window.addEventListener('mouseup', e => {
-        switch(e.button) {
-          case 0 : this.Lholding = false;
-          break;
-          case 2 : this.Rholding = false;
-          break;
-        }
-      })
-*/
       window.addEventListener('contextmenu', e => e.preventDefault());
   }
   draw(player, canvas) {
       if(this.Lholding === true && player.x > 0){
         player.x -= 5;
+        player.image = document.getElementById('Right-player');
       } else if(this.Rholding === true && player.x < canvas.width - player.width) {
         player.x += 5;
+        player.image = document.getElementById('blue-player')
     }
   }
 }

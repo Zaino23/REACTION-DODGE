@@ -28,4 +28,23 @@ export default class Enemies {
                         this.height
       )
     }
+    recycleEnemies(enemies, canvas, ctx, onRecycle) {
+      for(let i =0; i < enemies.length; i++) {
+        enemies[i].update();
+        enemies[i].draw(ctx);
+        if(enemies[i].y > canvas.height) {
+          enemies.splice(i, 1);
+          enemies.push(new Enemies(canvas.width, canvas.height));
+          onRecycle();
+      }
+    }
+  }
+  resetEnemies(enemies, canvas) {
+    enemies.length = 0;
+        for (let i = 0; i < 4; i++) {
+          let enemy = new Enemies(canvas.width, canvas.height);
+          enemy.y = -50 - i * 175; 
+          enemies.push(enemy)
+}
+  }
 }
