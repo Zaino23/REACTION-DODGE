@@ -3,7 +3,7 @@ const coinsEarned = document.getElementById('coinsEarned');
 
 export default class Coins {
   constructor() {
-    this.coinsEarned ;
+    this.coinsEarned = 0;
     this.coins = Number(localStorage.getItem('coins')) || 0;
   }
 
@@ -14,6 +14,6 @@ export default class Coins {
       txt.textContent = `${this.coins} 🪙`;
       localStorage.setItem('coins', this.coins);  
     });
-    coinsEarned.innerHTML = `coins earned  ${Number(this.coinsEarned)}` ;
+    coinsEarned.textContent = `coins earned  ${Number(this.coinsEarned)}` ;
   }
 }

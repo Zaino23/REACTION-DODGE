@@ -44,7 +44,7 @@ window.onload = () => {
   const enemies = [];
   const player = new Player(canvas.width, canvas.height, canvas);
   const input = new InputHandler();
-  const enemy = new Enemies(canvas.width, canvas.height);
+  const enemy = new Enemies(canvas.width, canvas.height, score);
   const ScoreDisplayer = new ScoreDisplay(canvas);
   const coinsDisplayer = new Coins() ;
 
@@ -54,13 +54,14 @@ window.onload = () => {
   })
 
   function collision() {
+    const pad = 6;
     for(let i = 0; i < enemies.length; i++) {
       let e = enemies[i];
       if (
-        player.x < e.x + e.width &&
-        player.x + player.width > e.x &&
-        player.y < e.y + e.height &&
-        player.y + player.height > e.y
+        player.x + pad < e.x + e.width - pad &&
+        player.x + player.width - pad > e.x + pad &&
+        player.y + pad < e.y + e.height - pad &&
+        player.y + player.height - pad > e.y + pad
       ) {
         endGame();
       }
@@ -178,7 +179,7 @@ function animate() {
 
     ctx.fillStyle = '#1c9ab3';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    enemy.recycleEnemies(enemies, canvas, ctx, onRecycle);
+    enemy.recycleEnemies(enemies, canvas, ctx, onRecycle, score);
     player.drawPlayer(ctx); 
     input.draw(player, canvas); 
     ScoreDisplayer.drawScore(ctx, score);
