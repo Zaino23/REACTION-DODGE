@@ -3,6 +3,7 @@ import InputHandler from "./input.js";
 import Enemies from "./enemies.js";
 import ScoreDisplay from "./score.js";
 import Coins from "./coins.js";
+import renderShop from "./shop.js";
 
 window.onload = () => {
   const canvas = document.getElementById('canvas');
@@ -14,7 +15,8 @@ window.onload = () => {
   const menus = {
     startMenu: document.getElementById('startMenu'),
     pauseMenu: document.getElementById('PauseMenu'),
-    endMenu: document.getElementById('EndMenu')
+    endMenu: document.getElementById('EndMenu'),
+    shop: document.getElementById('shop')
   }
   
   const scoreBoard = {
@@ -27,6 +29,7 @@ window.onload = () => {
     pause2: document.getElementById('pause2'),
     QuitButtons:  document.querySelectorAll('.quitBtn'),
     restartButtons: document.querySelectorAll('.RestartBtn'),
+    shopBtn: document.querySelectorAll('.shopBtn'),
     startBtn:  document.getElementById('startBtn')
   }
 
@@ -52,6 +55,8 @@ window.onload = () => {
   coinTexts.forEach(txt => {
     txt.textContent = `${Number(localStorage.getItem('coins'))} 🪙`;
   })
+
+  renderShop();
 
   function collision() {
     const pad = 6;
@@ -135,6 +140,14 @@ function resume() {
   }
 }
 
+  buttons.shopBtn.forEach(button => {
+    button.addEventListener('click', e => {
+      hideAllMenus();
+      menus.shop.style.display = 'block';
+      isPaused = true;
+    })
+  })
+
   buttons.pause.addEventListener('click', e => {
     if(isPaused) resume();
     else if (!isPaused) pauseGame();
@@ -143,8 +156,8 @@ function resume() {
     if(isPaused) resume();
   })
 
-  buttons.QuitButtons.forEach(button => {
-    button.addEventListener('click', () => {
+  buttons.QuitButtons.forEach(qButton => {
+    qButton.addEventListener('click', () => {
       quitGame();
       player.ressetPlayer(input, canvas);
     })
