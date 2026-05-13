@@ -41,6 +41,7 @@ window.onload = () => {
   let isPaused = true;
 
   let score = 0;
+  let bonus = 1;
   let bestScore = Number(localStorage.getItem('hightScore')) || 0;
   let coins = 0;
 
@@ -183,7 +184,8 @@ function resume() {
     enemy.resetEnemies(enemies, canvas);
     scoreBoard.endScore.innerHTML = `SCORE: ${score}`
     scoreBoard.bestScore.innerHTML = `Highscore ${bestScore}`;
-    coinsDisplayer.updateCoins(score);
+    bonus = localStorage.getItem('sold-bonus') === 'true' ? 1.25 : 1;
+    coinsDisplayer.updateCoins(score, bonus);
     score = 0;
   }
 

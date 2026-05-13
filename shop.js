@@ -1,5 +1,5 @@
 const items = [
-  { id: 'bonus', name: 'Money bonus', price: 150, sold:false},
+  { id: 'bonus', name: '25% Money bonus', price: 150, sold:false},
   { id: 'invis', name: 'Invisability', price: 200, sold:false}
 ];
 const itemsContainer = document.querySelector('.items');
@@ -11,6 +11,7 @@ export default function renderShop() {
       const itemName = document.createElement('h2');
       const itemPrice = document.createElement('h4')
       const itemButton = document.createElement('button');
+      const alreadyBought = localStorage.getItem(`sold-${item.id}`) === 'true' || false;
 
       card.classList.add('itemCard');
       itemName.classList.add('itemName');
@@ -18,15 +19,25 @@ export default function renderShop() {
       itemButton.classList.add('itemButton');
 
       itemName.innerHTML = `${item.name}`;
-      itemPrice.innerHTML = item.price;
+      itemPrice.innerHTML = `${item.price} 🪙`;
       itemButton.textContent = 'BUY!';
 
-      item.sold = localStorage.getItem(`sold-${item.id}`) === 'true';
+        if(alreadyBought){
+          card.classList.add('disabled');
+          itemPrice.classList.add('disabled');
+          itemName.classList.add('disabled');
+          itemButton.classList.add('disabled');
+        } else if(!alreadyBought){
+          card.classList.remove('disabled');
+          itemButton.classList.remove('disabled');
+          itemPrice.classList.remove('disabled');
+          itemName.classList.remove('disabled');
+        }
 
       itemButton.addEventListener('click', ()=> {
         let coin = Number(localStorage.getItem('coins')) || 0;
 
-        if(coin >= item.price && item.sold === false) {
+        if(coin >= item.price && !alreadyBought) {
           coin -= item.price
           item.sold = true;
 
@@ -34,8 +45,11 @@ export default function renderShop() {
             txt.textContent = `${coin} 🪙`;
             localStorage.setItem('coins', coin)
             localStorage.setItem(`sold-${item.id}`, 'true')
+            card.classList.add('disabled');
+            if(item.id === 'bonus') {
+            }
           })
-        }
+        } 
       });
 
       itemsContainer.appendChild(card);

@@ -76,7 +76,7 @@ body {
   transform: translate(-50%, -50%);
   color: white;
   -webkit-text-stroke: 0.5px #00f7ff;
-  font-size: 30px;
+  font-size: 25px;
   transform: translateY(10px);
 }
 
@@ -111,7 +111,10 @@ body {
 }
 
 .disabled{
-  display: disabled;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: green;
 }
 
 /* Pause Menu */
@@ -366,7 +369,7 @@ body {
   transform: translateX(-50%);
   color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   -webkit-text-stroke: 1px #136265;
   text-shadow:
     0 0 10px #00f7ff,
