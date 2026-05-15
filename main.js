@@ -4,6 +4,7 @@ import Enemies from "./enemies.js";
 import ScoreDisplay from "./score.js";
 import Coins from "./coins.js";
 import renderShop from "./shop.js";
+import Invis from "./powerUps.js";
 
 window.onload = () => {
   const canvas = document.getElementById('canvas');
@@ -51,15 +52,21 @@ window.onload = () => {
   const enemy = new Enemies(canvas.width, canvas.height, score);
   const ScoreDisplayer = new ScoreDisplay(canvas);
   const coinsDisplayer = new Coins() ;
+  const invis = new Invis();
 
   const coinTexts = document.querySelectorAll('.coinsBtn');
   coinTexts.forEach(txt => {
     txt.textContent = `${Number(localStorage.getItem('coins'))} 🪙`;
   })
 
-  renderShop();
+  renderShop(invis);
+
+  window.addEventListener('keydown', e => {
+    invis.tryactivate(e.key);
+  })
 
   function collision() {
+    if(invis.active === true) return;
     const pad = 6;
     for(let i = 0; i < enemies.length; i++) {
       let e = enemies[i];
@@ -195,11 +202,12 @@ function animate() {
     ctx.fillStyle = '#1c9ab3';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     enemy.recycleEnemies(enemies, canvas, ctx, onRecycle, score);
-    player.drawPlayer(ctx); 
+    player.drawPlayer(ctx, invis.active); 
     input.draw(player, canvas); 
     ScoreDisplayer.drawScore(ctx, score);
     ScoreDisplayer.bestScore(score, bestScore, newBestScore)
     collision();
+    invis.drawTime(canvas, ctx)
     requestAnimationFrame(animate);
   }
   animate();

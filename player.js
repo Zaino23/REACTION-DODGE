@@ -10,8 +10,23 @@ export default class Player {
       this.frameX = 0;
       this.frameY = 0;
     }
-    drawPlayer(context) {
-      context.drawImage(this.image,
+    drawPlayer(context, active) {
+      if(active === true) {
+        context.save();
+        context.globalAlpha = 0.6;
+        context.drawImage(this.image,
+                          this.width * this.frameX,
+                          this.height * this.frameY,
+                          this.width,
+                          this.height,
+                          this.x,
+                          this.y,
+                          this.width,
+                          this.height
+                        );
+      context.restore();
+    } else {
+        context.drawImage(this.image,
                         this.width * this.frameX,
                         this.height * this.frameY,
                         this.width,
@@ -21,12 +36,12 @@ export default class Player {
                         this.width,
                         this.height
                       );
-                    
     }
+  }
 
     ressetPlayer(input, canvas) {
       this.image = document.getElementById('blue-player');
-      this.x = canvas.width / 2;
+      this.x = this.width / 2;
       input.Rholding = false;
       input.Lholding = false;
     }

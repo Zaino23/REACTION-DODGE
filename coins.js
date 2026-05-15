@@ -12,16 +12,16 @@ export default class Coins {
     this.scoreBonus = 0;
     if(score >= 499){
       this.scoreBonus = 100;
-      this.coinsEarned = Math.floor(score / 5* bonus) + this.scoreBonus ;
+      this.coinsEarned = Math.floor(score / 5 * bonus) + this.scoreBonus ;
     } else if(score >= 200) {
       this.scoreBonus = 50;
-      this.coinsEarned = Math.floor((score / 5* bonus) + this.scoreBonus );
+      this.coinsEarned = Math.floor((score / 5 * bonus) + this.scoreBonus );
     } else if(score >= 100) {
       this.scoreBonus = 25;
-      this.coinsEarned = Math.floor(score / 5* bonus) + this.scoreBonus;
+      this.coinsEarned = Math.floor(score / 5 * bonus) + this.scoreBonus;
     } else if(score >= 50) {
       this.scoreBonus = 10;
-      this.coinsEarned = Math.floor(score / 5* bonus) + this.scoreBonus;
+      this.coinsEarned = Math.floor(score / 5 * bonus) + this.scoreBonus;
     } else {
       this.coinsEarned = Math.floor(score / 5 * bonus);
     }
