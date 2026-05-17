@@ -1,6 +1,6 @@
 const items = [
   { id: 'bonus', name: '25% Money bonus', price: 150, sold:false},
-  { id: 'invis', name: '3sec Invisability', price: 200, sold:false}
+  { id: 'invis', name: '3sec Invisability', price: 100, sold:false}
 ];
 const itemsContainer = document.querySelector('.items');
 const coinTxt = document.querySelectorAll('.coinsBtn')

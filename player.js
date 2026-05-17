@@ -41,7 +41,7 @@ export default class Player {
 
     ressetPlayer(input, canvas) {
       this.image = document.getElementById('blue-player');
-      this.x = this.width / 2;
+      this.x = this.gameWidth / 2 - this.width / 2;
       input.Rholding = false;
       input.Lholding = false;
     }
